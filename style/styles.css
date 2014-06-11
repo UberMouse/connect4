@@ -1,0 +1,8 @@
+table {
+	background-image: url("../img/board.jpg");
+	background-repeat: no-repeat;
+	background-size: 800px 600px;
+	width: 800px;
+	height: 600px;
+	margin: 0px, auto;
+}
