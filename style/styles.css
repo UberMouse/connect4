@@ -1,8 +1,41 @@
+#header {
+	width: 800px;
+	margin: 10px auto;
+
+}
+
 table {
 	background-image: url("../img/board.jpg");
 	background-repeat: no-repeat;
 	background-size: 800px 600px;
-	width: 800px;
-	height: 600px;
-	margin: 0px, auto;
+	width: 806px;
+	height: 606px;
+	margin: 0px auto;
+	border: 3px ridge blue;
+	border-radius: 5px;
+}
+
+h1 {
+	font-family: 'Changa One', cursive;
+	font-size: 10em;
+	color: #FF0000;
+	text-align: center;
+	padding: 10px 0;
+	margin: 0 0;
+}
+
+#board-table {
+	padding: 0px 4px;
+}
+
+body {
+	background-image: url("../img/stardust.png");
+}
+
+.container {
+	background-color: white;
+	width: 1200px;
+	margin: 20px auto;
+	padding-bottom: 100px;
+	border-radius: 20px;
 }
