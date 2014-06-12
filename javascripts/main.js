@@ -66,8 +66,11 @@ $(document).ready(function() {
 	}
 
 	function placePieces(player, cell) {
+		cell.css("position", "relative");
+		cell.css("top", -800);
 		cell.html('<img src="img/'+player+'.png" />');
 		cell.attr('class', player);
+		cell.animate({ top: "+=800"}, 800);
 		return cell;
 	}
 });
