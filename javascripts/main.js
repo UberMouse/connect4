@@ -39,6 +39,8 @@ $(document).ready(function() {
 
 		cell = placePieces(currentplayer, emptyCell)
 		currentplayer = (currentplayer === 'red') ? 'yellow' : 'red';
+		$('.visiting').removeClass('visiting')
+		$('.checked').removeClass('checked')
 		if(check_winner(cell)) {
 			won = true;
 			showWinner(cell.attr('class'));
@@ -65,9 +67,15 @@ $(document).ready(function() {
 		return $('#board-table tr').eq(row).children().eq(column);
 	}
 
+	function sleepFor( sleepDuration ){
+	    var now = new Date().getTime();
+	    while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+	}
+
 	function check_winner(cell) {
 		var player = cell.attr("class")
 		function recurse(count, cell, visitedCells) {
+			cell.addClass('visiting');
 			console.info(cell.html());
 			visitedCells.push(cell.attr('id'));
 			var surroundingCells = _(getSurroundingCells(cell)).filter(function (el) {
@@ -76,13 +84,16 @@ $(document).ready(function() {
 				return false;
 			});
 
+			_(surroundingCells).each(function(el) {
+				el.addClass('checked')
+			});
+
 			if(count == 1) return true;
 			if(surroundingCells.length == 0) return false;
 			for(var i = 0;i < surroundingCells.length;i++) {
 				return recurse(--count, surroundingCells[i], visitedCells);
 			}
 		}	
-
 		return recurse(7, cell, []);
 	}
 
@@ -107,10 +118,10 @@ $(document).ready(function() {
 			$('#timer').html("<p>You have: "+time+" second remaining</p>");
 			time--;
 			} else {
-				var answer = alert("You are out of time!!! Click ok to restart game");
-				if (!answer) {
-					window.location="index.html";
-				}
+				// var answer = alert("You are out of time!!! Click ok to restart game");
+				// if (!answer) {
+				// 	window.location="index.html";
+				// }
 			}
 		}, 1000);
 	}
