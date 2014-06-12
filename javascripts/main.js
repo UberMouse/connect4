@@ -39,7 +39,15 @@ $(document).ready(function() {
 
 		cell = placePieces(currentplayer, emptyCell)
 		currentplayer = (currentplayer === 'red') ? 'yellow' : 'red';
-		check_winner(cell);
+		if(check_winner(cell)) {
+			won = true;
+			showWinner(cell.attr('class'));
+		}
+	}
+
+	function showWinner(player) {
+		$("#player-name").text(player)
+		$("#banner").show();
 	}
 
 	function getSurroundingCells(cell) {
