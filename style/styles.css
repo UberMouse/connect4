@@ -80,13 +80,6 @@ a {
 
 td {
 	width: 111px;
-<<<<<<< HEAD
-	height: 97px;
-	min-width: 111px;
-	min-height: 97px;
-	max-width: 111px;
-	max-height: 97px;
-=======
 	height: 98px;
 	max-width: 111px;
 	max-height: 98px;
@@ -96,7 +89,6 @@ td {
 
 tr {
 padding-left: 10px;
->>>>>>> df7fa5ccc472cd1f51457fd6ec03633de87395a2
 }
 
 #footer {
