@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	function setup(){	
-		 for(var i=0; i<6; i++){
+		 _(_.range(6)).each(function(i) {
 		 	var tds = "";
-		 	 for(var j=0; j < 7; j++){
-		 	 	tds += "<td></td>";
-		 	 }
+		 	 _(_.range(7)).each(function(j) {
+		 	 	tds += "<td id='"+i+"-"+j+"''></td>";
+		 	 });
 
-		 	$('#board-table').append($("<tr>" + tds + "</tr>"));
-		 }
+		 	$('#board-table').append($("<tr>" + tds + "</tr>"));	
+		 })
 		 $('#board-table').on("click", 'td', pieceClicked);
 	}
 
@@ -28,67 +28,46 @@ $(document).ready(function() {
 	function pieceClicked() {
 		if(won) return;
 		column = getColumn($(this).index());
-		emptyCell = -1;
-		for(var i = column.length-1;i >= 0;i--) {
-			if(column[i].html() === '') {
-				emptyCell = column[i];
-				break;
-			}
-		}
+		emptyCell = _.chain(column.reverse()).filter(function(el) {
+			return el.html() === '';
+		}).first().value();
 
-		if(emptyCell === -1) {
+		if(emptyCell === undefined) {
 			alert('column is full');
 			return;
 		}
 
-		placePieces(currentplayer, emptyCell)
+		cell = placePieces(currentplayer, emptyCell)
 		currentplayer = (currentplayer === 'red') ? 'yellow' : 'red';
-		check_winner();
+		check_winner(cell);
 	}
 
-	function check_winner() {
-		check_vertical();
-		check_horizontal();	
+	function getSurroundingCells(cell) {
+		//coulum its in(index) need it row index cells parent
+		var row = cell.parent().index();
+		var column = cell.index();
+		var positions = [[-1, 0], [0, 1], [0, -1], [1, 0]];
+		return _(positions).map(function(thing) {
+			return getCell(row+thing[0],column+thing[1])
+		});
+	}	
+
+	function getCell(row, column)
+	{
+		return $('#board-table tr').eq(row).children().eq(column);
 	}
 
-	function check_vertical() {
-		var currentInARow = 0;
-		var previous = '';
-		var current = ''
-		var column;
-		for(var i = 0;i < 7;i++) {
-			column = getColumn(i);
-			for(var j = 0;j < column.length;j++) {
-				if(column[j].html() === '') continue;
+	function check_winner(cell) {
+		function recurse(count, cell, visited_cells) {
+			
+		}	
 
-				current = $(column[j]).attr('class');
-				if(previous === '') {
-					previous = current
-					currentInARow = 1;
-					continue;
-				}
-				if(previous !== current) {
-					previous = current;
-					currentInARow = 1;
-					continue;
-				}
-				else {
-					currentInARow++;
-				}
-				if(currentInARow == 4) {
-					alert(current + ' won!');
-					won = true;
-				}
-
-			}
-			previous = ''
-		}
+		return recurse(7, cell, [])	
 	}
-
-	function check_horizontal() {}
-
 
 	function placePieces(player, cell) {
-		cell.html('<img src="img/'+player+'.png" class=".'+player+'-piece"/>')
+		cell.html('<img src="img/'+player+'.png" />');
+		cell.attr('class', player);
+		return cell;
 	}
 });

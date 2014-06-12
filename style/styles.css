@@ -49,6 +49,10 @@ h1 {
 td {
 	width: 111px;
 	height: 97px;
+	min-width: 111px;
+	min-height: 97px;
+	max-width: 111px;
+	max-height: 97px;
 }
 
 #footer {
