@@ -2,10 +2,11 @@
 
 body {
 	background-image: url("../img/stardust.png");
+	font-family: 'Changa One', cursive;
 }
 
 .container {
-	background-color: white;
+	background-image: url("../img/diamond_eyes.png");
 	width: 1200px;
 	margin: 20px auto;
 	padding-bottom: 40px;
@@ -21,24 +22,41 @@ body {
 
 }
 
+#banner {
+	text-align: center;
+	border-top: 2px dashed purple;
+	display: none;
+}
+
 table {
 	background-image: url("../img/board.png");
 	background-repeat: no-repeat;
-	background-size: 800px 604px;
-	width: 800px;
-	height: 609px;
+	background-size: 805px 604px;
+	background-position: -5px -1px;
+	width: 796px;
+	height: 606px;
 	margin: 0px auto;
 	border-radius: 5px;
+	margin-top: 15px;
 }
 
 h1 {
-	font-family: 'Changa One', cursive;
 	font-size: 10em;
 	color: #FF0000;
 	text-align: center;
 	padding: 10px 0;
 	margin: 0 0;
 	text-shadow: 5px 5px #991F00;
+}
+
+h2 {
+	font-size: 3em;
+	color: #FF0000;
+	margin: 15px 0;
+}
+
+a {
+	font-size: 2.5em;
 }
 
 #board-table {
@@ -48,11 +66,20 @@ h1 {
 
 td {
 	width: 111px;
-	height: 97px;
+	height: 98px;
+	max-width: 111px;
+	max-height: 98px;
+	min-height: 98px;
+	min-width: 111px;
+}
+
+tr {
+padding-left: 10px;
 }
 
 #footer {
 	text-align: center;
 	padding-top: 20px;
 	color: #CC0000;
+	font-family: sans-serif;
 }

@@ -1,15 +1,23 @@
 <html>
   <head>
+  	<link rel="stylesheet" type="text/css" href="style/normalize.css">
   	<link href='http://fonts.googleapis.com/css?family=Changa+One' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" type="text/css" href="style/styles.css">
+  	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  	
   	<script src="javascripts/main.js"></script>
   </head>
   <body>
   	<div class="container">
 	  	<div id="header">
-	  		<h1>Connect 4</h1>
+	  		<h1>Connect 7</h1>
 	  	</div>
+	  	<div id="banner">
+	  		<h2>Congratulations <span id="player.name"></span>, you have won!</h2>
+	  		<a href="index.html">Play another game!</a>
+	  	</div>	
 	  	<div id="board-container">
 	  		<table id="board-table">
 	  		</table>
@@ -19,4 +27,12 @@
 	  	</div>
 	</div>
   </body>
+  <script>
+  $(document).ready(function() {
+
+	  $("#header").effect( "bounce", { times:5, distance: 200 }, 2000 );
+
+  });
+	
+</script>
 </html>
