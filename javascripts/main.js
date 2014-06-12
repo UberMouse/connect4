@@ -3,7 +3,7 @@ $(document).ready(function() {
 		 _(_.range(6)).each(function(i) {
 		 	var tds = "";
 		 	 _(_.range(7)).each(function(j) {
-		 	 	tds += "<td id='"+i+"-"+j+"''></td>";
+		 	 	tds += "<td id='"+i+"-"+j+"'></td>";
 		 	 });
 
 		 	$('#board-table').append($("<tr>" + tds + "</tr>"));	
@@ -43,7 +43,7 @@ $(document).ready(function() {
 	}
 
 	function getSurroundingCells(cell) {
-		//coulum its in(index) need it row index cells parent
+		//column its in(index) need it row index cells parent
 		var row = cell.parent().index();
 		var column = cell.index();
 		var positions = [[-1, 0], [0, 1], [0, -1], [1, 0]];
@@ -58,11 +58,24 @@ $(document).ready(function() {
 	}
 
 	function check_winner(cell) {
-		function recurse(count, cell, visited_cells) {
-			
+		var player = cell.attr("class")
+		function recurse(count, cell, visitedCells) {
+			console.info(cell.html());
+			visitedCells.push(cell.attr('id'));
+			var surroundingCells = _(getSurroundingCells(cell)).filter(function (el) {
+				if (el.attr('class') === player && !_(visitedCells).contains(el.attr('id')))
+					return true;
+				return false;
+			});
+
+			if(count == 1) return true;
+			if(surroundingCells.length == 0) return false;
+			for(var i = 0;i < surroundingCells.length;i++) {
+				return recurse(--count, surroundingCells[i], visitedCells);
+			}
 		}	
 
-		return recurse(7, cell, [])	
+		return recurse(7, cell, []);
 	}
 
 	function placePieces(player, cell) {
