@@ -15,6 +15,14 @@ body {
 	padding-top: 0;
 }
 
+.visiting {
+	background-color: black;
+}
+
+.checked {
+	background-color: blue;
+}
+
 /*  */
 
 #header {
@@ -105,4 +113,5 @@ tr {
 	margin: 0px auto;
 	text-align: center;
 	font-size: 20px;
+	color: purple;
 }
