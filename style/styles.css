@@ -22,6 +22,20 @@ body {
 
 }
 
+#four {
+	-webkit-animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}   
+}
+
+
+#seven {
+	display: none;
+}
+
 #banner {
 	text-align: center;
 	border-top: 2px dashed purple;
