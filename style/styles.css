@@ -1,0 +1,58 @@
+/* General page styles */
+
+body {
+	background-image: url("../img/stardust.png");
+}
+
+.container {
+	background-color: white;
+	width: 1200px;
+	margin: 20px auto;
+	padding-bottom: 40px;
+	border-radius: 20px;
+	border: 10px solid #FFCC00;
+}
+
+/*  */
+
+#header {
+	width: 800px;
+	margin: 10px auto;
+
+}
+
+table {
+	background-image: url("../img/board.png");
+	background-repeat: no-repeat;
+	background-size: 800px 604px;
+	width: 800px;
+	height: 609px;
+	margin: 0px auto;
+	border-radius: 5px;
+}
+
+h1 {
+	font-family: 'Changa One', cursive;
+	font-size: 10em;
+	color: #FF0000;
+	text-align: center;
+	padding: 10px 0;
+	margin: 0 0;
+	text-shadow: 5px 5px #991F00;
+}
+
+#board-table {
+	padding: 0px 4px;
+	padding-top: 1px;
+}
+
+td {
+	width: 111px;
+	height: 97px;
+}
+
+#footer {
+	text-align: center;
+	padding-top: 20px;
+	color: #CC0000;
+}
