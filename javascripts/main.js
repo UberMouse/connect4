@@ -66,6 +66,8 @@ $(document).ready(function() {
 	}
 
 	function placePieces(player, cell) {
+		clearInterval(interval);
+		startTimer();
 		cell.css("position", "relative");
 		cell.css("top", -800);
 		cell.html('<img src="img/'+player+'.png" />');
@@ -73,4 +75,23 @@ $(document).ready(function() {
 		cell.animate({ top: "+=800"}, 800);
 		return cell;
 	}
+
+	var time = 10;
+	var interval;
+
+	function startTimer() {
+		time = 10;
+		interval = window.setInterval(function() {
+		if (time >= 0) {
+			$('#timer').html("<p>You have: "+time+" second remaining</p>");
+			time--;
+			} else {
+				var answer = alert("You are out of time!!! Click ok to restart game");
+				if (!answer) {
+					window.location="index.html";
+				}
+			}
+		}, 1000);
+	}
+
 });
