@@ -10,6 +10,7 @@ body {
 	margin: 20px auto;
 	padding-bottom: 40px;
 	border-radius: 20px;
+	border: 10px solid #FFCC00;
 }
 
 /*  */
@@ -21,13 +22,12 @@ body {
 }
 
 table {
-	background-image: url("../img/board.jpg");
+	background-image: url("../img/board.png");
 	background-repeat: no-repeat;
-	background-size: 800px 600px;
-	width: 806px;
-	height: 606px;
+	background-size: 800px 604px;
+	width: 800px;
+	height: 609px;
 	margin: 0px auto;
-	
 	border-radius: 5px;
 }
 
@@ -38,7 +38,7 @@ h1 {
 	text-align: center;
 	padding: 10px 0;
 	margin: 0 0;
-	text-shadow: 5px 5px darkgray;
+	text-shadow: 5px 5px #991F00;
 }
 
 #board-table {
@@ -54,5 +54,5 @@ td {
 #footer {
 	text-align: center;
 	padding-top: 20px;
-	color: #FF0000;
+	color: #CC0000;
 }
