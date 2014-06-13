@@ -3,7 +3,8 @@
 	App.model = function(time) {
 		this.currentplayer = "red";
 		this.won = false;
-		this.time = time || 10;
+		this.defaulttime = time || 10;
+		this.time = this.defaulttime;
 		this.interval;
 		this.view;
 		self = this;
@@ -35,6 +36,7 @@
 
 		doTimerStuff: function() {
 			clearInterval(self.interval);
+			self.time = self.defaulttime;
 	        self.startTimer();
 		},
 
@@ -47,15 +49,15 @@
 		startTimer: function() {
 			self.interval = window.setInterval(function() {
 			if (self.time >= 0) {
-				$('#timer').html("<p>You have: "+ self.time+" second remaining</p>");
-				self.time--;
+				$('#timer').html("<p>You have: "+ self.time.toFixed(2) +" second remaining</p>");
+				self.time-=0.1;
 				} else {
-					// var answer = alert("You are out of time!!! Click ok to restart game");
-					// if (!answer) {
-					// 	window.location="index.html";
-					// }
+					var answer = alert("You are out of time!!! Click ok to restart game");
+					if (!answer) {
+						window.location="index.html";
+					}
 				}
-			}, 1000);
+			}, 100);
 		},
 
 		checkWinner: function(cell) {

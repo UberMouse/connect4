@@ -13,7 +13,7 @@
 
   	<script>
 		$(document).ready(function() {
-	  		model = new App.model(60);
+	  		model = new App.model(15);
 	  		view = new App.view('#board-table', 
 	  						    '#banner', 
 	  						    '#player-name', 
@@ -39,7 +39,7 @@
 	  		</table>
 	  	</div>
 	  	<div>
-	  		<span id="timer"><p>You have: 10 seconds remaining</p></span>
+	  		<span id="timer"><p>You have: 15 seconds remaining</p></span>
 	  	</div>
 
 	  	<div id="footer">
@@ -53,9 +53,10 @@
 	$("#header").effect( "bounce", { times:5, distance: 200 }, 2000 );
   	$("#begin-spin").on('click', function(event) {
   	$("#four").addClass("spin");
-  	$("#header").delay(1000).hide('explode', { "pieces":500 }, 1000, function() { 
+  	$("#header").delay(1000).hide('explode', { "pieces":500 }, function() { 
   		$("#four").remove(); 
   		$("#seven").show();
+  		$("#start-game").remove();
   	});
   	$("#header").show('explode', { "pieces":500 }, function() { 
   		});

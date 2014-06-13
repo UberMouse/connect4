@@ -43,9 +43,14 @@
 	            [1, 0]
 	        ];
 	        var that = this;
-	        return _(positions).map(function (thing) {
-	            return that.getCell(row + thing[0], column + thing[1])
-	        });
+	        console.log('-------')
+	        return _(positions).chain().map(function (positionModifer) {
+	        	var newRow = row + positionModifer[0]
+	        	var newColumn = column + positionModifer[1]
+	        	if((newRow > 7 || newRow < 0) || (newColumn > 7 || newColumn < 0))
+	        		return null;
+	            return that.getCell(newRow, newColumn)
+	        }).compact().value();
 	    },
 
 	    getCell: function (row, column) {
