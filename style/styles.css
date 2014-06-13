@@ -21,10 +21,10 @@ body {
 	width: 800px;
 	margin: 10px auto;
 	margin-top: 0px;
-
+	padding-top: 0px;
 }
 
-#four {
+.spin {
 	-webkit-animation: spin 1s infinite linear;
 }
 
@@ -33,6 +33,18 @@ body {
     100% {-webkit-transform: rotate(360deg);}   
 }
 
+#start-game {
+	width: 200px;
+	margin: 0 auto;
+	height: 50px;
+}
+#begin-spin {
+	width: 200px;
+	height: 50px;
+	background-color: purple;
+	color: red;
+	font-size: 2em;
+}
 
 #seven {
 	display: none;
