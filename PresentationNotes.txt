@@ -1,0 +1,75 @@
+30sec	Demo
+
+2min	Timeline 	Thursday10:30 	Ideas	Connect 4, 
+											Database of highscores, 
+											Multiplayer
+											
+									MVP		1.A user can see a board
+											2.A user can see a styled board
+											3.A user can place a piece into a column
+											4.Users place alternating yellow and red pieces on the board
+											5.Users can't place a piece in a filled column
+											6.A user can see an animation when they place a piece
+											7.Users are notified when they win the game
+												
+							11:30	Sprint1 1. '3' 
+											2. '3' 
+											3. '5' 
+											4. '5'
+							
+									Pairing Structure   - Gen+Mike on front-end, UI, background placement, title animation
+														- Tim+Melissa on JS setup board, placing pieces & checking algorithm
+														- Taylor as JS consultant
+														- Tim on photoshop mastery
+								
+							2:30	Sprint2 Polish View '3'
+											Polish JS	'5'
+											6. '5' 
+											7. '5'
+											(8.User can see time-limit to make a move '3')
+									Velocity: 16(3) - Polish 'JS' moved to next morning
+									
+									Pivoted to connect 7!!
+									
+									Pairing Structure 	- Gen+Mike on view, winning banner, coin placement
+														- Melissa+Taylor on notifying winner, 
+														------- MVP minus winning algorithm -------
+														- Melissa+Mike on time limit, sliding animation
+														- Gen+Taylor on winning algorithm
+					
+							6:00	Almost completed winning algorithm, bug found :(
+					
+					
+					Friday 	10:30	Decision to refactor to MVC and focus on testing rather than implement multiplayer
+									
+									Pairing Structure	- Gen+Melissa on presentation
+														- Mike+Taylor on despaghettifying code
+														------ Group decision to Abandon MVC - pivot to MVM!! -
+														Possible but too hard to maintain game state between files ------
+														------ focus on integration testing + unit tests to debug winning algorithm -------
+														
+							12:30	
+							3:30	
+							
+	1 -1.5mins pp 	Learning Objectives + Code that exemplifies that learning
+	
+									Taylor		Not HTML/CSS
+									
+									Melissa		JS + testing - Table, Timer
+												Ajax
+												
+									Genevieve	Jasmine Testing
+												Ajax
+												HTML/CSS
+												
+									Mike		HTML/CSS
+												JS MVC
+												
+									Tim			ActiveRecord
+												JS
+
+
+	1min 	Conclusion												
+	
+	
+					
