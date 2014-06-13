@@ -19,6 +19,9 @@
 	  	<div id="banner">
 	  		<h2>Congratulations <span id="player.name"></span>, you have won!</h2>
 	  		<a href="index.html">Play another game!</a>
+	  	</div>
+	  	<div id="start-game">
+	  		<input type="submit" id="begin-spin" value="Start Game">
 	  	</div>	
 	  	<div id="board-container">
 	  		<table id="board-table">
@@ -35,12 +38,18 @@
   </body>
   <script>
   $(document).ready(function() {
-
+  		
 	  $("#header").effect( "bounce", { times:5, distance: 200 }, 2000 );
-	  $("#four").fadeOut(5000, function() {
-	  	$("#seven").show();
-	  });
   });
-	
+
+  $("#begin-spin").on('click', function(event) {
+  	$("#four").addClass("spin");
+  	$("#header").delay(1000).hide('explode', { "pieces":500 }, 1000, function() { 
+  		$("#four").remove(); 
+  		$("#seven").show();
+  	});
+  	$("#header").show('explode', { "pieces":500 }, function() { 
+  	});
+  });
 </script>
 </html>
