@@ -42,8 +42,9 @@
 	            [0, -1],
 	            [1, 0]
 	        ];
+	        var that = this;
 	        return _(positions).map(function (thing) {
-	            return this.getCell(row + thing[0], column + thing[1])
+	            return that.getCell(row + thing[0], column + thing[1])
 	        });
 	    },
 

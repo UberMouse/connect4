@@ -22,9 +22,15 @@
 
 			self.doTimerStuff();
 
+			$('.visiting').removeClass('visiting')
+			$('.checked').removeClass('checked')
 			cell = self.view.placePiece(self.currentplayer, emptyCell)
+			won = self.checkWinner(cell);
+			if(won) {
+				self.won = true;
+				self.view.showWinner(self.currentplayer);
+			}
 			self.currentplayer = (self.currentplayer === 'red') ? 'yellow' : 'red';
-			self.checkWinner(cell);
 		},
 
 		doTimerStuff: function() {
@@ -44,10 +50,10 @@
 				$('#timer').html("<p>You have: "+ self.time+" second remaining</p>");
 				self.time--;
 				} else {
-					var answer = alert("You are out of time!!! Click ok to restart game");
-					if (!answer) {
-						window.location="index.html";
-					}
+					// var answer = alert("You are out of time!!! Click ok to restart game");
+					// if (!answer) {
+					// 	window.location="index.html";
+					// }
 				}
 			}, 1000);
 		},
@@ -55,7 +61,7 @@
 		checkWinner: function(cell) {
 			var player = cell.attr("class")
 			function recurse(count, cell, visitedCells) {
-				cell.addClass('visiting');
+				cell.addClass('checked');
 
 				visitedCells.push(cell.attr('id'));
 				var surroundingCells = _(self.view.getSurroundingCells(cell)).filter(function (el) {
@@ -63,18 +69,22 @@
 						return true;
 					return false;
 				});
-
+				console.log(count)
+				console.log(cell.attr('id'))
+				console.log(_(surroundingCells).map(function(el) {return el.attr('id')}))
+				console.log('--------')
 				_(surroundingCells).each(function(el) {
 					el.addClass('checked')
 				});
 
 				if(count == 1) return true;
 				if(surroundingCells.length == 0) return false;
-				for(var i = 0;i < surroundingCells.length;i++) {
-					return recurse(--count, surroundingCells[i], visitedCells);
-				}
+				return _(surroundingCells).chain().map(function(cell) {
+					recurse(count - 1, cell, visitedCells)
+				}).some(_.identity).value();
 			}	
-			return recurse(7, cell, []);
+			recurse(7, cell, [])
+			return $(".checked").length >= 7;
 		},
 
 		setView: function(view) {
