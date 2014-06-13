@@ -3,7 +3,8 @@
 	App.model = function(time) {
 		this.currentplayer = "red";
 		this.won = false;
-		this.time = time || 10;
+		this.defaulttime = time || 10;
+		this.time = this.defaulttime;
 		this.interval;
 		this.view;
 		self = this;
@@ -35,6 +36,7 @@
 
 		doTimerStuff: function() {
 			clearInterval(self.interval);
+			self.time = self.defaulttime;
 	        self.startTimer();
 		},
 
