@@ -7,9 +7,20 @@
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<script src="javascripts/underscore.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  	<script src="javascripts/main.js"></script>
+	<script src="javascripts/app.js"></script>
+  	<script src="javascripts/view.js"></script>
+  	<script src="javascripts/model.js"></script>
 
-
+  	<script>
+		$(document).ready(function() {
+	  		model = new App.model(60);
+	  		view = new App.view('#board-table', 
+	  						    '#banner', 
+	  						    '#player-name', 
+	  						    model.pieceClickedCallback);
+	  		model.setView(view);
+	  	});
+  	</script>
   </head>
   <body>
   	<div class="container">
